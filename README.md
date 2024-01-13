@@ -10,7 +10,6 @@ This will showcase:
 - ThreeJS
 - HTML, JS, CSS
 - CI/CD pipeline with safe git flow
-- Proficiency with microsoft Azure
+- AWS Cloud services (because it's free)
 - NodeJS (naturally)
 - Tailwindcss
-- 
