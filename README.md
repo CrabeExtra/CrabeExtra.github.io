@@ -9,7 +9,7 @@ This will showcase:
 - React
 - ThreeJS
 - HTML, JS, CSS
-- CI/CD pipeline with safe git flow
+- CI/CD pipeline with safe git flow (this is an automatic CI/CD pipeline obvs, I'll have to do a backend project with something more curated)
 - AWS Cloud services (because it's free)
 - NodeJS (naturally)
 - Tailwindcss
