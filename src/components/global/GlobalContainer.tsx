@@ -5,7 +5,7 @@ interface Props { }
 export const GlobalContainer: React.FC<Props> = () => {
 
     return (
-        <div>
+        <div id='global-container'>
 
         </div>
     )

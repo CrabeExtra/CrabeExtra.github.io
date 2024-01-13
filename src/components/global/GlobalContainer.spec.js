@@ -1,11 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from "@testing-library/react";
 
 import { GlobalContainer } from './GlobalContainer';
 
 describe('GlobalContainer', () => {
-	it('should render a <div />', () => {
-		const container = shallow(<GlobalContainer />);
-		expect(container.find('div').length).toEqual(1);
+	test('should render the global-container <div />', () => {
+		const { container } = render(<GlobalContainer/>);
+		expect(container.querySelector('div#global-container')).toBeInTheDocument();
     });
 });
