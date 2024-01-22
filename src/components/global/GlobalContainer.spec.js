@@ -4,8 +4,8 @@ import { render, screen } from "@testing-library/react";
 import { GlobalContainer } from './GlobalContainer';
 
 describe('GlobalContainer', () => {
-	test('should render the global-container <div />', () => {
+	test('should render the global-container <main />', () => {
 		const { container } = render(<GlobalContainer/>);
-		expect(container.querySelector('div#global-container')).toBeInTheDocument();
+		expect(container.querySelector('main#global-container')).toBeInTheDocument();
     });
 });
