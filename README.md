@@ -12,8 +12,7 @@ This will showcase:
 - ThreeJS (fiber, drei)
 - HTML, JS, CSS
 - CI/CD pipeline with safe git flow (this is an automatic CI/CD pipeline obvs, I'll have to do a backend project with something more curated)
-- AWS Cloud services EDIT: I'm moving from amplify as it was incurring costs even though listed as free.
+- AWS Cloud services EDIT: I'm moving from Amplify to just regular github hosting as it was incurring costs even though listed as free.
 - NodeJS (naturally)
 - Tailwindcss
 
-.

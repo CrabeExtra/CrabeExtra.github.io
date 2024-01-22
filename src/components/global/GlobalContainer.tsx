@@ -12,7 +12,7 @@ interface Props { }
 const GlobalContainer: React.FC<Props> = () => {
 
     return (
-        <main id='global-container'>
+        <main id='global-container' className="h-full">
             <Router>
                 <Navbar/>
                 <Routes>

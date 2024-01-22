@@ -6,9 +6,9 @@ Source: https://sketchfab.com/3d-models/foxs-islands-163b68e09fcc47618450150be77
 Title: Fox's islands
 */
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { a } from '@react-spring/three';
 
 import { islandScene } from '../../assets/3d/gblExport'
@@ -23,9 +23,64 @@ const Island = (props: any) => {
   const rotationSpeed = useRef(0);
   const dampingFactor = 0.95;
 
+  useEffect(() => {
+    const canvas = gl.domElement;
+    canvas.addEventListener('pointerdown', handlePointerDown);
+    canvas.addEventListener('pointerup', handlePointerUp);
+    canvas.addEventListener('pointermove', handlePointerMove);
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      canvas.removeEventListener('pointerdown', handlePointerDown);
+      canvas.removeEventListener('pointerup', handlePointerUp);
+      canvas.removeEventListener('pointermove', handlePointerMove);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
+    }
+  });
+
+  useFrame(() => {
+    if(!props.isRotating && !props.isRotatingByKeys) {
+      rotationSpeed.current *= dampingFactor;
+
+      if(Math.abs(rotationSpeed.current) <= 0.001) {
+        rotationSpeed.current = 0;
+      } 
+
+      islandRef.current.rotation.y += rotationSpeed.current;
+    } else {
+      
+
+    }
+    var rotation = islandRef.current.rotation.y;
+    props.setIslandRotation(islandRef.current.rotation);
+
+    const normalizedRotation = ((rotation % (2* Math.PI)) + 2  * Math.PI) % (2 * Math.PI);
+
+    switch(true) {
+      case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
+        props.setCurrentStage(4);
+      break;
+      case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
+        props.setCurrentStage(3);
+      break;
+      case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
+        props.setCurrentStage(2);
+      break;
+      case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
+        props.setCurrentStage(1);
+      break;
+      default:
+        props.setCurrentStage(null);
+      break;
+    }
+    
+  })
+
   const handlePointerDown = (e: any) => {
     e.preventDefault();
-    e.stopProgation();
+    e.stopPropagation();
     props.setIsRotating(true);
 
     const clientX = e.touches ? e.touches[0].clientX : e.clientX ;
@@ -35,24 +90,42 @@ const Island = (props: any) => {
 
   const handlePointerUp = (e: any) => {
     e.preventDefault();
-    e.stopProgation();
+    e.stopPropagation();
     props.setIsRotating(false);
-
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX ;
-
-    const delta = (clientX - lastX.current) / viewport.width;
-
-    islandRef.current.rotation.y += delta * 0.01 * Math.PI;
-    lastX.current = clientX;
-    rotationSpeed.current = delta * 0.01 * Math.PI;
   }
 
   const handlePointerMove = (e: any) => {
     e.preventDefault();
-    e.stopProgation();
+    e.stopPropagation();
 
-    if(props.isRotating) handlePointerUp(e)
+    if(props.isRotating) {
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX ;
 
+      const delta = (clientX - lastX.current) / viewport.width;
+
+      islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+      lastX.current = clientX;
+      rotationSpeed.current = delta * 0.01 * Math.PI;
+    }
+
+  }
+
+  const handleKeyDown = (e: any) => {
+    if(e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+      if(!props.isRotatingByKeys) props.setIsRotatingByKeys(true);
+
+      islandRef.current.rotation.y += 0.01 * Math.PI;
+      rotationSpeed.current = 0.0125
+    } else if(e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+      if(!props.isRotatingByKeys) props.setIsRotatingByKeys(true);
+
+      islandRef.current.rotation.y -= 0.01 * Math.PI;
+      rotationSpeed.current = -0.0125
+    }
+  }
+
+  const handleKeyUp = (e: any) => {
+    if(e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D' || e.key === 'a' || e.key === 'A') props.setIsRotatingByKeys(false);
   }
 
   return (
