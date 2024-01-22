@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0de24e88.css",
+    "main.js": "/static/js/main.ab2e76ae.js",
+    "static/js/27.f71f9ad2.chunk.js": "/static/js/27.f71f9ad2.chunk.js",
+    "static/media/bird.glb": "/static/media/bird.2d9d116d6b6ae8ec2e5f.glb",
+    "static/media/plane.glb": "/static/media/plane.52b8b6710c6c3ca4367f.glb",
+    "static/media/island.glb": "/static/media/island.4bc24e1789ee6c57cf12.glb",
+    "static/media/sky.glb": "/static/media/sky.976aece63e736f4c2961.glb",
+    "static/media/fox.glb": "/static/media/fox.5e68cbde343c5e2f7b16.glb",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.0de24e88.css",
+    "static/js/main.ab2e76ae.js"
+  ]
+}
