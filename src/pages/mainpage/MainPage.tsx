@@ -54,7 +54,7 @@ const MainPage = () => {
             setPlaneScale([1.5, 1.5, 1.5]);
             setPlanePosition([0, -1.5, 0]);
         } else {
-            setPlaneScale([1, 1, 1]);
+            setPlaneScale([3, 3, 3]);
             setPlanePosition([0, -4, -4]);
         }
     }
