@@ -46,14 +46,14 @@ const About = () => {
             Experience
           </h3>
 
-          <div className="mt-5 flex flex-col gap-3 text-slate-400/100">
+          {/* <div className="mt-5 flex flex-col gap-3 text-slate-400/100">
             <p>
               I am a Software Engineer from Australia with a strong tertiary education in software
               engineering, mathematics and related areas. I have professional
               experience primarily in Full Stack Engineering. I am code agnostic, teachable
               and I have professional experience in blockchain engineering.
             </p>
-          </div>
+          </div> */}
         </div>
 
         <div className="mt-12 flex">

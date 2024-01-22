@@ -15,7 +15,7 @@ const Projects = () => {
         <p>
           I'm hoping to fill this section out further as I spend more time in the industry.
           My professional projects so far have been under NDA so I cannot share the code, 
-          but I'm I'll have some more projects to share to a greater extent as time goes on.
+          but I'll have some more projects to share to a greater extent here as time goes on.
         </p>
       </div>
 
