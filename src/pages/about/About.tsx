@@ -60,6 +60,7 @@ const About = () => {
             <VerticalTimeline>
               {experiences.map((experience: any) => (
                 <VerticalTimelineElement
+                  style={{color: "#FFF"}}
                   key={experience.company_name}
                   date={experience.date}
                   icon={

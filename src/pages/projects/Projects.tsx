@@ -14,7 +14,8 @@ const Projects = () => {
       <div className="mt-5 flex flex-col gap-3 text-slate-400/100">
         <p>
           I'm hoping to fill this section out further as I spend more time in the industry.
-          My professional projects so far have been under NDA so I cannot share the code, 
+          My professional projects so far have been under NDA so I cannot share the code,
+          in addition to many of the client-facing projects I have built and contributed to, 
           but I'll have some more projects to share to a greater extent here as time goes on.
         </p>
       </div>

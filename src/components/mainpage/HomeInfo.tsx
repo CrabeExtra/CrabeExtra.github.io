@@ -21,14 +21,18 @@ const renderContent: any = {
     ),
     2: (
         <InfoBox 
-            text="I have 2 years professional experience and jumped into the deep-end straight out of uni, learning a lot very quickly."
+            text={"I have 4 years professional experience in software engineering spanning from "
+                + "the entrepreneurial space to the well established warehouse logistics and materials handling industry. "
+                + "My experience has given me a rich understanding of how to operate in a team and with a broad range of "
+                + "specialists as well as how to take initiative and make a difference on my own."
+            }
             link="/about"
             btnText="Learn more"
         />
     ),
     3: (
         <InfoBox 
-            text="Considerable 'owning' contribution to some projects and smaller contributions to a lot of projects in many programming languages."
+            text="Considerable 'owning' contribution to several projects and smaller contributions to a lot of projects in many programming languages."
             link="/projects"
             btnText="Explore my projects"
         />

@@ -30,6 +30,7 @@ import goeIcon from './goe_icon.png'
 import ruby from './ruby.png'
 import solidity from './solidity.png'
 import utas from './utas.png'
+import dematic from './dematic_logo.png';
 
 export {
     css,
@@ -63,5 +64,6 @@ export {
     goeIcon,
     ruby,
     solidity,
-    utas
+    utas,
+    dematic
 }
